@@ -1,0 +1,2 @@
+class UpdateDate < ApplicationRecord
+end
