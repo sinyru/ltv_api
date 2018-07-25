@@ -9,4 +9,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Rdate.create({ start_date: '2018-07-01' })
+Rdate.create({ start_date: '2017-07-01' })

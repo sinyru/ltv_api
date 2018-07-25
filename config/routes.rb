@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :update_dates, except: [:new]
   resources :rdates, except: [:new]
   resources :all_orders, only: [:index]
+  resources :page_orders, except: [:new]
+  resources :subscriptions, except: [:new]
 end
