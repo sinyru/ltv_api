@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
       @orders << orders
     end
 
-    Rdate.create({"start_date": date_end})
+
     render json: @orders
   end
 

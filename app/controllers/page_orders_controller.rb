@@ -5,7 +5,7 @@ class PageOrdersController < ApplicationController
 
     date_start = Rdate.last.start_date
     date = Rdate.last.start_date.split("-")
-    date_end = (Date.new(date[0].to_i, date[1].to_i, date[2].to_i)+7).to_s.split("-")
+    date_end = (Date.new(date[0].to_i, date[1].to_i, date[2].to_i)+14).to_s.split("-")
     date_end = date_end[0]+"-"+date_end[1]+"-"+date_end[2].split(" ")[0]
 
     @orders = []
@@ -25,8 +25,6 @@ class PageOrdersController < ApplicationController
       orders = JSON.parse(shopify_orders)
       @orders << orders
     end
-
-    Rdate.create({"start_date": date_end})
 
     render json: @orders
   end
