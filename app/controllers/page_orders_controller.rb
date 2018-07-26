@@ -17,10 +17,10 @@ class PageOrdersController < ApplicationController
 
     num_pages = JSON.parse(num_pages)
 
-    for i in 1..(num_pages["count"]/50+1)
+    for i in 1..(num_pages["count"]/250+1)
       shopify_orders = RestClient::Request.execute(
         method: :get,
-        url: "https://#{api_key}:#{secret_key}@myonecondoms-us.myshopify.com/admin/orders.json?status=any&created_at_min=#{date_start}&created_at_max=#{date_end}&limit=50&page=#{i}"
+        url: "https://#{api_key}:#{secret_key}@myonecondoms-us.myshopify.com/admin/orders.json?status=any&created_at_min=#{date_start}&created_at_max=#{date_end}&limit=250&page=#{i}"
       )
       orders = JSON.parse(shopify_orders)
       @orders << orders

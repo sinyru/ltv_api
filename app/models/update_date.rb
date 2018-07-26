@@ -1,2 +1,0 @@
-class UpdateDate < ApplicationRecord
-end

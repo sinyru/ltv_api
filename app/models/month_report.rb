@@ -1,2 +1,0 @@
-class MonthReport < ApplicationRecord
-end
