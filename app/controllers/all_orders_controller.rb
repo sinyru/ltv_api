@@ -4,17 +4,11 @@ class AllOrdersController < ApplicationController
   end
 
   def create
-    @all_order = AllOrder.create(all_order_params)
-
-    if @all_order.save
-      render json: @all_order, status: :created
-    else
-      render json: @all_order.errors, status: :unprocessable_entity
-    end
+    AllOrder.create(all_order_params)
   end
 
   def all_order_params
-    params.require(:all_order).permit(:order_id,:customer_id,:created_at,:item_purchased,
-      :email, :first_name, :last_name, :item_description, :price, :quantity, :order_unique_key)
+    params.require(:all_order).permit(:order_id,:customer_id,:created_at,:variant_title,
+      :email, :first_name, :last_name, :product_title, :price, :quantity, :order_unique_key, :item_type)
   end
 end

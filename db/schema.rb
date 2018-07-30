@@ -16,30 +16,24 @@ ActiveRecord::Schema.define(version: 20180726182858) do
   enable_extension "plpgsql"
 
   create_table "all_orders", force: :cascade do |t|
-    t.string   "order_unique_key", null: false
+    t.string   "order_unique_key",                 null: false
     t.bigint   "order_id"
     t.bigint   "customer_id"
-    t.datetime "created_at",       null: false
-    t.string   "item_purchased"
+    t.datetime "created_at",                       null: false
+    t.string   "variant_title"
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "quantity"
     t.float    "price"
-    t.string   "item_description"
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.bigint   "customer_id",                 null: false
-    t.string   "email",                       null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "province"
-    t.string   "country"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "status",      default: false, null: false
+    t.string   "product_title"
+    t.string   "item_type"
+    t.boolean  "s_24",             default: false
+    t.boolean  "s_12",             default: false
+    t.boolean  "s_6",              default: false
+    t.boolean  "s_sub",            default: false
+    t.boolean  "prod_sub",         default: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "examples", force: :cascade do |t|
@@ -50,18 +44,6 @@ ActiveRecord::Schema.define(version: 20180726182858) do
     t.index ["user_id"], name: "index_examples_on_user_id", using: :btree
   end
 
-  create_table "month_reports", force: :cascade do |t|
-    t.integer  "order_counts",       null: false
-    t.integer  "sample_counts",      null: false
-    t.integer  "six_counts",         null: false
-    t.integer  "twelve_counts",      null: false
-    t.integer  "twenty_four_counts", null: false
-    t.integer  "subscriber_counts",  null: false
-    t.string   "date_range",         null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,73 +51,6 @@ ActiveRecord::Schema.define(version: 20180726182858) do
 
   create_table "rdates", force: :cascade do |t|
     t.string   "start_date", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sample_orders", force: :cascade do |t|
-    t.string   "order_unique_key", null: false
-    t.bigint   "order_id",         null: false
-    t.bigint   "customer_id",      null: false
-    t.datetime "created_at",       null: false
-    t.string   "item_purchased",   null: false
-    t.string   "email",            null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "quantity"
-    t.float    "price"
-    t.string   "item_description"
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "six_pack_orders", force: :cascade do |t|
-    t.string   "order_unique_key", null: false
-    t.bigint   "order_id",         null: false
-    t.bigint   "customer_id",      null: false
-    t.datetime "created_at",       null: false
-    t.string   "item_purchased",   null: false
-    t.string   "email",            null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "quantity"
-    t.float    "price"
-    t.string   "item_description"
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "twelve_pack_orders", force: :cascade do |t|
-    t.string   "order_unique_key", null: false
-    t.bigint   "order_id",         null: false
-    t.bigint   "customer_id",      null: false
-    t.datetime "created_at",       null: false
-    t.string   "item_purchased",   null: false
-    t.string   "email",            null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "quantity"
-    t.float    "price"
-    t.string   "item_description"
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "twenty_four_pack_orders", force: :cascade do |t|
-    t.string   "order_unique_key", null: false
-    t.bigint   "order_id",         null: false
-    t.bigint   "customer_id",      null: false
-    t.datetime "created_at",       null: false
-    t.string   "item_purchased",   null: false
-    t.string   "email",            null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "quantity"
-    t.float    "price"
-    t.string   "item_description"
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "update_dates", force: :cascade do |t|
-    t.string   "start_date", null: false
-    t.string   "end_date",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
